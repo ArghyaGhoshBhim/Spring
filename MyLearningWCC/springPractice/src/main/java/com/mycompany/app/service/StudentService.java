@@ -12,6 +12,8 @@ public class StudentService {
 //        student.setName("arghya");
 //        student.setRollNumber(10);
 
+//        Student student=new Student(10, "arghya");
+
 //        Now we will put all our xml configuration into the java program
 //        Here we making a bean factory which produce bean or object for us WHEN IT IS REQUIRED.
 //        lazy loading

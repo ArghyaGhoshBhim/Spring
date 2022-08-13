@@ -7,7 +7,8 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 <!--here we will make the object of classes insted of doing using new keyword-->
-
+<!--********************************************************-->
+    <!--    This is also known as setter injection-->
 <!--    normal way to make object of student is
 Student student =new Student();
 1.here id="student" is same as student reference in line number 12.
@@ -15,15 +16,41 @@ Student student =new Student();
 
 3.<property name=""></property> ->this tag use to initialize the field of the class, work like setter method.
 1.
-
 -->
-    <bean id="student" class="com.mycompany.app.model.Student">
+
+<!--   <bean id="student" class="com.mycompany.app.model.Student">
         <property name="rollNumber" value="45"></property>
         <property name="name" value="arghay"></property>
+    </bean>-->
 
+
+<!--*********************************************************************-->
+<!--    Constructer injection-->
+<!--    Student student=new Student(10, "arghya"); normal way to make a obj by the help of constructor
+*by the help of <constructor-arg> tag we can easyly pass the value to initialize our fields.
+*and the sequence of value should be same like rollNumber come first and then name will come.
+-->
+   <!-- <bean id="student" class="com.mycompany.app.model.Student">
+        <constructor-arg value="10"></constructor-arg>
+        <constructor-arg value="arghya"></constructor-arg>
+    </bean> -->
+
+<!--    * To specify what constructor we want to call because we have total 2 parametrize constructor(str, int) and (int, str)
+* here index="0" and type="int" we telling to the string that call the parametrize constructor whose fist index int type and second
+one is str type.
+
+-->
+
+    <bean id="student" class="com.mycompany.app.model.Student">
+<!--        calling the Student(int rollNumber, String name)-->
+      <!--  <constructor-arg index="0" type="int" value="10"></constructor-arg>
+        <constructor-arg index="1" type="String" value="20"></constructor-arg>-->
+
+    <!--        calling the Student(String name, int rollNumber)-->
+        <constructor-arg index="1" type="int" value="10"></constructor-arg>
+        <constructor-arg index="0" type="String" value="20"></constructor-arg>
 
 
     </bean>
-
     <context:annotation-config/>
 </beans>

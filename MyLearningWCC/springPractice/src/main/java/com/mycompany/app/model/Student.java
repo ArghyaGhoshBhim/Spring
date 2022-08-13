@@ -9,6 +9,12 @@ public class Student {
     }
 
     public Student(int rollNumber, String name) {
+        System.out.println("int, string");
+        this.rollNumber = rollNumber;
+        this.name = name;
+    }
+    public Student(String name, int rollNumber) {
+        System.out.println("str, int");
         this.rollNumber = rollNumber;
         this.name = name;
     }
