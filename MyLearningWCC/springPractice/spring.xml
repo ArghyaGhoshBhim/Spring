@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+<!--here we will make the object of classes insted of doing using new keyword-->
+
+<!--    normal way to make object of student is
+Student student =new Student();
+1.here id="student" is same as student reference in line number 12.
+2.class=we will provide the fully qualified class name for the Student class.
+
+3.<property name=""></property> ->this tag use to initialize the field of the class, work like setter method.
+1.
+
+-->
+    <bean id="student" class="com.mycompany.app.model.Student">
+        <property name="rollNumber" value="45"></property>
+        <property name="name" value="arghay"></property>
+
+
+
+    </bean>
+
+    <context:annotation-config/>
+</beans>

@@ -18,7 +18,28 @@
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
+<!--we need to add two dependency in the case of XML based configuration in spring core
+1. spring-core
+2. spring-context
+-->
+
   <dependencies>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>5.3.19</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.3.19</version>
+    </dependency>
+
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
