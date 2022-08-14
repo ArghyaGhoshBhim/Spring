@@ -10,7 +10,7 @@ public class Student {
 
 //    If we have two beans of same type then we can tell spring what bean have to inject
 //    @Qualifier("getAdressBean")
-    @Qualifier("getAdressBean1")
+    @Qualifier("adr1")
 //    Use to inject the Address bean into the Student.
     @Autowired
     private Address address;

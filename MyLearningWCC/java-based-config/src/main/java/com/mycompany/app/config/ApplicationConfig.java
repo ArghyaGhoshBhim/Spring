@@ -21,7 +21,7 @@ public class ApplicationConfig {
         return new Address("bolpur", "westBengal");
 
     }
-    @Bean
+    @Bean(name = "adr1")
     public Address getAdressBean1(){
         return new Address("bankura", "westBengal");
 
