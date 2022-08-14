@@ -40,11 +40,12 @@ public class StudentService {
 
 
 
-
 //        *********************************Scope************************
 /**        By default the scope of the bean is single turn ->means create only one object once or for every object memory location is same.
  *
  */
+
+/**
         BeanFactory factory=new XmlBeanFactory(new FileSystemResource("scope.xml"));
         Student student=(Student) factory.getBean("student");
 
@@ -52,6 +53,17 @@ public class StudentService {
         student1.setName("bapi");
         System.out.println(student1);
         System.out.println(student);
+**/
+
+//***********************************Life cycle method**************************
+
+
+        BeanFactory factory=new XmlBeanFactory(new FileSystemResource("lifecyclemethod.xml"));
+
+        Student student=(Student) factory.getBean("student");
+        System.out.println(student);
+        Student student1=(Student) factory.getBean("student");
+        System.out.println(student1);
 
 
     }

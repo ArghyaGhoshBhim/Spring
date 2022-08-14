@@ -1,0 +1,4 @@
+com\mycompany\app\model\Address.class
+com\mycompany\app\model\Student.class
+com\mycompany\app\App.class
+com\mycompany\app\service\StudentService.class

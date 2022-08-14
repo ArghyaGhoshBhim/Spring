@@ -1,10 +1,13 @@
 package com.mycompany.app.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Student {
     private int rollNumber;
     private String name;
 
-
+//    Use to inject the Address bean into the Student.
+    @Autowired
     private Address address;
 
 
