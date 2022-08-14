@@ -42,6 +42,7 @@ public class Student {
         this.name = name;
     }
 
+
     public void myInit(){
         System.out.println("This is my init method");
     }

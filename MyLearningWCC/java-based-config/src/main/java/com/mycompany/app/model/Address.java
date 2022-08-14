@@ -1,5 +1,15 @@
 package com.mycompany.app.model;
 
+
+import org.springframework.stereotype.Component;
+
+
+/**Here spring container will create address bean and the name of the bean will be "address"
+ * By default name of this bean will be "address"
+ * No need to create a obj usin @Bean annotaion.
+ * @Component("add1") we can provide the name also instead of the default one.
+ */
+@Component("adr1")
 public class Address {
     private String city;
     private String state;
