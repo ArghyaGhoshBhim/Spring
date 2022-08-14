@@ -41,16 +41,69 @@ one is str type.
 
 -->
 
-    <bean id="student" class="com.mycompany.app.model.Student">
+
+<!--    start bean-->
+<!--    <bean id="student" class="com.mycompany.app.model.Student">-->
 <!--        calling the Student(int rollNumber, String name)-->
       <!--  <constructor-arg index="0" type="int" value="10"></constructor-arg>
         <constructor-arg index="1" type="String" value="20"></constructor-arg>-->
 
     <!--        calling the Student(String name, int rollNumber)-->
-        <constructor-arg index="1" type="int" value="10"></constructor-arg>
-        <constructor-arg index="0" type="String" value="20"></constructor-arg>
+<!--        <constructor-arg index="1" type="int" value="10"></constructor-arg>-->
+<!--        <constructor-arg index="0" type="String" value="20"></constructor-arg>-->
+<!--    </bean> -->
 
+<!--    end of bean-->
+
+<!--    *************************************************************************************-->
+<!--    INJECTING A BEAN INTO THE OTHER BEAN-->
+
+<!--    PROPERTY INJECTION-->
+    <!--bean wiring->connect the student obj and address obj-->
+    <bean id="student1" class="com.mycompany.app.model.Student">
+        <property name="rollNumber" value="120"></property>
+        <property name="name" value="arghya"></property>
+        <!--bean wiring->connect the student obj and address obj-->
+        <property name="address" ref="address"></property>
+    </bean>
+
+    <!-- default  no auto wiring  -->
+    <!-- type -> search for a bean of requiredtype(Address) and inject it  MUST BE ONE QUALIFING BEAN-->
+
+<!--    ......................................................-->
+<!--    autowire by type-->
+<!--    <bean id="student2" class="com.mycompany.app.model.Student" autowire="byType">-->
+<!--        <property name="rollNumber" value="12110"></property>-->
+<!--        <property name="name" value="arghya ghosh"></property>-->
+<!--    </bean>-->
+
+
+    <!-- name -> search for a bean of requiredName(address) and inject it -->
+
+<!--    autowire by name-->
+    <bean id="student3" class="com.mycompany.app.model.Student" autowire="byName">
+        <property name="rollNumber" value="12110"></property>
+        <property name="name" value="arghya ghosh"></property>
+    </bean>
+
+<!--    autowire by constructor-->
+    <bean id="student" class="com.mycompany.app.model.Student" autowire="constructor">
+
+        <constructor-arg index="0" type="" value="18"> </constructor-arg>
+        <constructor-arg value="virat"> </constructor-arg>
 
     </bean>
+
+    <bean id="address" class="com.mycompany.app.model.Address">
+        <constructor-arg index="0" type="String" value="bolpur"></constructor-arg>
+        <constructor-arg index="1" type="String" value="West bengal"></constructor-arg>
+    </bean>
+
+    <bean id="address1" class="com.mycompany.app.model.Address">
+        <constructor-arg index="0" type="String" value="rampur"></constructor-arg>
+        <constructor-arg index="1" type="String" value="West"></constructor-arg>
+    </bean>
+
+
     <context:annotation-config/>
 </beans>

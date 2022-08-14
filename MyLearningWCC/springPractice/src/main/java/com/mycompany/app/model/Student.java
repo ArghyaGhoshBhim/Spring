@@ -4,6 +4,21 @@ public class Student {
     private int rollNumber;
     private String name;
 
+
+    private Address address;
+
+
+
+
+
+    public Student(int rollNumber, String name, Address address) {
+        this.rollNumber = rollNumber;
+        this.name = name;
+        this.address = address;
+    }
+
+
+
     public Student(){
 
     }
@@ -17,6 +32,15 @@ public class Student {
         System.out.println("str, int");
         this.rollNumber = rollNumber;
         this.name = name;
+    }
+
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public int getRollNumber() {
@@ -40,7 +64,7 @@ public class Student {
         return "Student{" +
                 "rollNumber=" + rollNumber +
                 ", name='" + name + '\'' +
+                ", address=" + address +
                 '}';
     }
-
 }
