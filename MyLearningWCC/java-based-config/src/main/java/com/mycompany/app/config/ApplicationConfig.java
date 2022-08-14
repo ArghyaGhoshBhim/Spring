@@ -21,5 +21,11 @@ public class ApplicationConfig {
         return new Address("bolpur", "westBengal");
 
     }
+    @Bean
+    public Address getAdressBean1(){
+        return new Address("bankura", "westBengal");
+
+    }
+
 
 }

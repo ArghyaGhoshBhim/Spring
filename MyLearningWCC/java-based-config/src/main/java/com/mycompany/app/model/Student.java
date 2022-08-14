@@ -1,11 +1,16 @@
 package com.mycompany.app.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class Student {
     private int rollNumber;
     private String name;
 
+
+//    If we have two beans of same type then we can tell spring what bean have to inject
+//    @Qualifier("getAdressBean")
+    @Qualifier("getAdressBean1")
 //    Use to inject the Address bean into the Student.
     @Autowired
     private Address address;
