@@ -6,12 +6,38 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-
+<!--making the bean -->
     <bean id="book" class="com.mycompany.app.Book">
         <property name="isbn" value="50"></property>
         <property name="name" value="My First World Cup"></property>
-
     </bean>
+    
+    <bean id="book1" class="com.mycompany.app.Book">
+        <property name="isbn" value="52"></property>
+        <property name="name" value="My First World Cup match"></property>
+    </bean>
+    
+    <!-- Not call any specific constructor-->
+   <!--  <bean id="book3" class="com.mycompany.app.Book">
+        <constructor-arg name="name" value="This is my cons-args"></constructor-arg>
+        <constructor-arg name="isbn" value="99"></constructor-arg>
+    </bean>-->
+    
+    
+   <!-- will call str, int constructor-->
+   <!-- <bean id="book3" class="com.mycompany.app.Book">
+        <constructor-arg index="0" name="name" value="This is my cons-args"></constructor-arg>
+        <constructor-arg index="1" name="isbn" value="99"></constructor-arg>
+    </bean>-->
+    
+    
+    <!-- will call int, str constructor-->
+    <bean id="book3" class="com.mycompany.app.Book">
+        <constructor-arg index="1" name="name" value="This is my cons-args"></constructor-arg>
+        <constructor-arg index="0" name="isbn" value="99"></constructor-arg>
+    </bean>
+    
+    
 
 
     <context:annotation-config/>
