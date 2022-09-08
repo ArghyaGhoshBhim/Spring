@@ -1,0 +1,12 @@
+/**@Configuration
+ * We are telling the spring container
+ * that this is our configuration class.
+ */
+
+ /**
+     * Telling that spring that is my Bean class.
+     * The default bean name or id is getBook.
+     * @Bean(name = "book")---------->now our bean name is 'book'
+     *
+     */
+    @Bean(name = "book")

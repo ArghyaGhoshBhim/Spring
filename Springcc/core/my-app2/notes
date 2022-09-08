@@ -1,0 +1,83 @@
+#Bean wiring
+#Inner bean wiring
+**************************************spring2.xml*********************
+#Bean wiring ------>
+     /******      <bean id="book" class="com.mycompany.app.Book">
+                <property name="isbn" value="50"></property>
+                <property name="name" value="My First World Cup"></property>
+            </bean>
+
+
+           **** Here injecting the book bean in the library bean
+               <bean id="library" class="com.mycompany.app.Library">
+                    <property name="libraryName" value="Central Library"> </property>
+                    <property name="address" value="m.g road bangalore"></property>
+
+                    Injecting bean by referance--------------------->
+                    <property name="book" ref="book"></property>
+               </bean>
+**************/
+
+
+/******************
+
+ **** Here injecting the book bean in the library bean
+  <bean id="library" class="com.mycompany.app.Library">
+        <property name="libraryName" value="Central Library"> </property>
+        <property name="address" value="m.g road bangalore"></property>
+        <property name="book" ref="book"></property>
+
+        ****here inner bean wiring happning****
+     <property name="book">
+            <bean id="book" class="com.mycompany.app.Book">
+               <property name="isbn" value="50"></property>
+               <property name="name" value="My First World Cup"></property>
+          </bean>
+     </property>
+
+    </bean>
+
+****************/
+
+******************************************************************************************************************
+/***********Book.java
+
+    int isbn;
+    String name;
+    String[] volumes;
+  ****************/
+
+/******************spring2.xml
+    <bean id="book" class="com.mycompany.app.Book">
+        <property name="isbn" value="50"></property>
+        <property name="name" value="My First World Cup"></property>
+
+**** To set the value of array ****
+<!--        <property name="volumes">-->
+<!--            <array>-->
+<!--                <value> 1 in Lords </value>-->
+<!--                <value> 2 in wankhede</value>-->
+<!--                <value> 3 chinnaswami</value>-->
+<!--            </array>-->
+<!--        </property>-->
+
+
+ ****instade of arry we can also mention it as list****
+                <property name="volumes">
+                    <list>
+                        <value> 1 in Lords </value>
+                        <value> 2 in wankhede</value>
+                        <value> 3 chinnaswami</value>
+                    </list>
+                </property>
+
+    </bean>
+
+    <bean id="library" class="com.mycompany.app.Library">
+        <property name="libraryName" value="Central Library"> </property>
+        <property name="address" value="m.g road bangalore"></property>
+        <property name="book" ref="book"></property>
+    </bean>
+
+
+******************/

@@ -1,0 +1,94 @@
+
+********To use spring core first we have to add two dependencies in pom.xml
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>5.3.21</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.3.21</version>
+    </dependency>
+           
+**************************************spring2.xml*************
+XML base configuration we have to config the spring2.xml to
+ create the beans:
+
+<bean id="book" class="com.mycompany.app.Book">
+        <property name="isbn" value="50"></property>
+        <property name="name" value="My First World Cup"></property>
+    </bean>
+ 
+ Book book=new Book()
+ here id="book" -------->reference and has to be unique
+ class=""com.mycompany.app.Book"--------------->have to provide the class name with package.
+ 
+ 
+ 
+ 
+ 
+ *********************************App.java********************************************
+   BeanFactory factory=new XmlBeanFactory(new FileSystemResource("spring2.xml"));
+   BeanFactory---------------->are responsible to creating bean for us.
+   new FileSystemResource("spring2.xml")--------->prove the config class name.
+   
+   2. Book book=factory.getBean(Book.class);//call by class name------>for the single occurance in the config file.
+   3.Book book=(Book)factory.getBean("book1");--->get the book obj by name or id in spring2.xml 
+   
+   
+   
+   
+   ***********************************************************************
+  1.
+   <bean id="book" class="com.mycompany.app.Book">
+        <property name="isbn" value="50"></property>
+        <property name="name" value="My First World Cup"></property>
+    </bean>
+    
+<property name="isbn" value="50"></property>------------>called setter method to set the
+                                                                value of field in book obj.
+   2.                                                             
+     <bean id="book3" class="com.mycompany.app.Book">
+        <constructor-arg name="name" value="This is my cons-args"></constructor-arg>
+        <constructor-arg name="isbn" value="99"></constructor-arg>
+    </bean>--------------->this will not call any specific constructor---->first will call
+     
+   **** <constructor-arg name="name" value="This is my cons-args"></constructor-arg>--->called constructor to set the
+                                                                                          value of field in book obj.   
+   **** if we not provide the name="__" then the sequence have to maintain as per the constructor parameter in BooK class.
+                                                                                                                                     
+   / ****** <!-- will call str, int constructor-->
+    <bean id="book3" class="com.mycompany.app.Book">
+        <constructor-arg index="0" name="name" value="This is my cons-args"></constructor-arg>
+        <constructor-arg index="1" name="isbn" value="99"></constructor-arg>
+    </bean>
+   *********/
+   
+   
+   **** index="_" will decide in which constructor have to call as per the parameter.
+   
+   <bean id="book3" class="com.mycompany.app.Book">
+        <constructor-arg type="String" value="This is my cons-args"></constructor-arg>
+        <constructor-arg type="int" value="99"></constructor-arg>
+    </bean>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   

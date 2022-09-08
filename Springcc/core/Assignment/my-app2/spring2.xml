@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+    <bean id="address1" class="com.mycompany.app.Address">
+        <constructor-arg index="0" type="String" value="kolkata"></constructor-arg>
+        <constructor-arg index="1" type="String" value="West bengal"></constructor-arg>
+        <constructor-arg index="2" type="int" value="795825"></constructor-arg>
+    </bean>
+
+    <bean id="address3" class="com.mycompany.app.Address">
+        <constructor-arg index="0" type="String" value="pune"></constructor-arg>
+        <constructor-arg index="1" type="String" value="Maharashtra"></constructor-arg>
+        <constructor-arg index="2" type="int" value="452514"></constructor-arg>
+    </bean>
+
+    <bean id="departmet1" class="com.mycompany.app.Departmet">
+        <property name="id" value="1254"></property>
+        <property name="name" value="EE"></property>
+    </bean>
+
+
+    <bean id="departmet" class="com.mycompany.app.Departmet">
+        <property name="id" value="1254"></property>
+        <property name="name" value="IT"></property>
+    </bean>
+
+
+
+    <bean id="employee1" class="com.mycompany.app.Employee" autowire="byName">
+        <property name="name" value="Ram"></property>
+        <property name="address">
+         <list>
+            <ref bean="address1"/>
+             <bean id="address2" class="com.mycompany.app.Address">
+                 <constructor-arg index="0" type="String" value="Bolpur"></constructor-arg>
+                 <constructor-arg index="1" type="String" value="West bengal"></constructor-arg>
+                 <constructor-arg index="2" type="int" value="731204"></constructor-arg>
+             </bean>
+
+         </list>
+        </property>
+    </bean>
+
+
+
+    <bean id="employee2" class="com.mycompany.app.Employee">
+        <property name="name" value="bappa"></property>
+        <property name="address">
+            <list>
+                <ref bean="address1"/>
+                <ref bean="address3"/>
+            </list>
+        </property>
+     <property name="departmet" ref="departmet1"></property>
+
+    </bean>
+
+
+
+
+
+    <context:annotation-config/>
+</beans>

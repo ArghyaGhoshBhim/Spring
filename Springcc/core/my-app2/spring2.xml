@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+<!--making the bean -->
+    <bean id="book" class="com.mycompany.app.Book">
+        <property name="isbn" value="50"></property>
+        <property name="name" value="My First World Cup"></property>
+
+<!--        <property name="volumes">-->
+<!--            <array>-->
+<!--                <value> 1 in Lords </value>-->
+<!--                <value> 2 in wankhede</value>-->
+<!--                <value> 3 chinnaswami</value>-->
+<!--            </array>-->
+<!--        </property>-->
+
+
+<!--        instade of arry we can also mention it as list-->
+                <property name="volumes">
+                    <list>
+                        <value> 1 in Lords </value>
+                        <value> 2 in wankhede</value>
+                        <value> 3 chinnaswami</value>
+                    </list>
+                </property>
+
+    </bean>
+
+    <bean id="library" class="com.mycompany.app.Library">
+        <property name="libraryName" value="Central Library"> </property>
+        <property name="address" value="m.g road bangalore"></property>
+        <property name="book" ref="book"></property>
+
+<!--        <property name="book">-->
+<!--            <bean id="book" class="com.mycompany.app.Book">-->
+<!--                <property name="isbn" value="50"></property>-->
+<!--                <property name="name" value="My First World Cup"></property>-->
+<!--            </bean>-->
+<!--        </property>-->
+
+    </bean>
+
+
+
+    <context:annotation-config/>
+</beans>
