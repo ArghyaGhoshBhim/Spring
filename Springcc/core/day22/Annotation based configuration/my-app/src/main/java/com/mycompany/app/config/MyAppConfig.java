@@ -1,4 +1,5 @@
 package com.mycompany.app.config;
+import com.mycompany.app.model.Address;
 import com.mycompany.app.model.Book;
 import com.mycompany.app.model.Library;
 import org.springframework.context.annotation.Bean;
@@ -33,9 +34,14 @@ public class MyAppConfig {
 //        return new Book("My book name1", 12001);
 //    }
 
+    @Bean(name = "address1")
+    public Address getAddress(){
+        return new Address("jalandhar", "Punjab");
+    }
+
     @Bean
     public Library getLibrary(){
-        return  new Library("lib name", null);
+        return  new Library();
     }
 
 }

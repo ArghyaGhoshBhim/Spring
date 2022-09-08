@@ -2,14 +2,26 @@ package com.mycompany.app.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.beans.factory.annotation.Value;
 
 public class Library {
 
+
+    @Value("${james.library.id}")
     String libraryName;
 
 //    @Qualifier("book1")
+
     @Autowired
     Book book;
+
+    @Qualifier("address1")
+    @Autowired
+    private Address homeAddress;
+    @Autowired
+    private Address officeAddress;
+
 
     public Library() {
         // TODO Auto-generated constructor stub
@@ -26,6 +38,7 @@ public class Library {
     }
 
 
+
     public Library( Book book) {
         super();
         System.out.println("library const args book");
@@ -39,6 +52,7 @@ public class Library {
         return libraryName;
     }
 
+    @Required
     public void setLibraryName(String libraryName) {
 
         this.libraryName = libraryName;
@@ -49,14 +63,35 @@ public class Library {
     }
 
 
+
     public void setBook(Book book) {
         System.out.println("set Book setter called");
         this.book = book;
     }
 
-    @Override
-    public String toString() {
-        return "Library [libraryName=" + libraryName + ", book=" + book + "]";
+    public Address getHomeAddress() {
+        return homeAddress;
     }
 
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public Address getOfficeAddress() {
+        return officeAddress;
+    }
+
+    public void setOfficeAddress(Address officeAddress) {
+        this.officeAddress = officeAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "Library{" +
+                "libraryName='" + libraryName + '\'' +
+                ", book=" + book +
+                ", homeAddress=" + homeAddress +
+                ", officeAddress=" + officeAddress +
+                '}';
+    }
 }
